@@ -5,12 +5,12 @@ const evaluate = async (req, res) => {
   const session = getSession(req.params.sessionId);
   if (!session) return res.status(404).json({ message: 'Session not found' });
 
-  if (session.answers.length < 5) {
-    return res.status(400).json({ message: 'Minimum 5 answers required' });
-  }
+  // if (session.answers.length < 5) {
+  //   return res.status(400).json({ message: 'Minimum 5 answers required' });
+  // }
 
   try {
-    const result = await evaluateAnswers(session.resumeText, session.answers);
+const result = await evaluateAnswers(session.resumeText, session.questionsAsked, session.answers);
     deleteSession(req.params.sessionId);
     res.json({ evaluation: result });
   } catch (err) {

@@ -1,21 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Login from './components/Login';
-import Register from './components/Register';
+// src/router.jsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import UploadPage from './pages/UploadPage';
+import InterviewPage from './pages/InterviewPage';
+import EvaluationPage from './pages/EvaluationPage';
 
-function App() {
+// Inside <Routes>
+
+
+export default function AppRouter() {
   return (
     <Router>
-      <div className="text-center py-4 bg-white shadow-md">
-        <Link to="/" className="text-blue-600 mx-4 font-semibold">Login</Link>
-        <Link to="/register" className="text-blue-600 mx-4 font-semibold">Register</Link>
-      </div>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/upload" element={<UploadPage />} />
+        <Route path="/interview" element={<InterviewPage />} />
+        <Route path="/evaluation" element={<EvaluationPage />} />
+
       </Routes>
     </Router>
   );
 }
-
-export default App;
