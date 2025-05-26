@@ -1,14 +1,24 @@
 // src/router.jsx
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import HomePage from './pages/HomePage';
 import UploadPage from './pages/UploadPage';
 import InterviewPage from './pages/InterviewPage';
 import EvaluationPage from './pages/EvaluationPage';
 
-// Inside <Routes>
+function AppRouter() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false,
+    });
+  }, []);
 
-
-export default function AppRouter() {
   return (
     <Router>
       <Routes>
@@ -16,8 +26,9 @@ export default function AppRouter() {
         <Route path="/upload" element={<UploadPage />} />
         <Route path="/interview" element={<InterviewPage />} />
         <Route path="/evaluation" element={<EvaluationPage />} />
-
       </Routes>
     </Router>
   );
 }
+
+export default AppRouter;
