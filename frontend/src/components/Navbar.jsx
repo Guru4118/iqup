@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -10,7 +11,13 @@ const Navbar = () => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const navLinks = ['Home', 'Roadmap', 'Blogs', 'About', 'Login'];
+  const navLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'Roadmap', path: '/roadmap' },
+    { label: 'Blogs', path: '/blogs' },
+    { label: 'About', path: '/about' },
+    { label: 'Login', path: '/login' },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md shadow-md">
@@ -18,13 +25,17 @@ const Navbar = () => {
         <h1 className="text-2xl font-bold text-pink-500 tracking-widest" data-aos="fade-down">
           IQUP
         </h1>
+
+        {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6" data-aos="fade-down">
           {navLinks.map((link, index) => (
-            <li
-              key={index}
-              className="text-white hover:text-pink-500 transition duration-300 cursor-pointer"
-            >
-              {link}
+            <li key={index}>
+              <Link
+                to={link.path}
+                className="text-white hover:text-pink-500 transition duration-300 cursor-pointer"
+              >
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>
@@ -39,29 +50,22 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Horizontal Menu (Right Side) */}
+      {/* Mobile Menu */}
       <div
-  className={`fixed top-0 right-0 h-screen w-1/2 bg-gradient-to-b from-black to-blue-400 z-40 pt-4 transition-transform duration-500 ease-in-out ${
-    menuOpen ? 'translate-x-0' : 'translate-x-full'
-  }`}
->
-
-      
-        <div className="flex justify-end p-4">
-          <c
-            size={28}
-            className="text-white cursor-pointer "
-            onClick={() => setMenuOpen(false)}
-          />
-        </div>
-        <ul className="flex flex-col items-start gap-6 pl-6 pt-15 ">
+        className={`fixed top-0 right-0 h-screen w-1/2 bg-gradient-to-b from-black to-blue-400 z-40 pt-4 transition-transform duration-500 ease-in-out ${
+          menuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <ul className="flex flex-col items-start gap-6 pl-6 pt-20">
           {navLinks.map((link, index) => (
-            <li 
-              key={index}
-              className="text-white  px-8 py-4 rounded-full w-50 text-lg font-medium hover:text-black hover:bg-white  transition duration-700 ease-in cursor-pointer "
-              onClick={() => setMenuOpen(false)}
-            >
-              {link}
+            <li key={index} className="w-full">
+              <Link
+                to={link.path}
+                className="block text-white px-8 py-4 rounded-full text-lg font-medium hover:text-black hover:bg-white transition duration-700 ease-in"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>

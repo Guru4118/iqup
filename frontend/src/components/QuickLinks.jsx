@@ -23,7 +23,7 @@ export default function QuickLinksPage() {
           <LinkCard  to="/" title="Home" />
           <LinkCard to="/upload" title="Roadmap" />
           <LinkCard to="/interview" title="Blogs" />
-          <LinkCard to="/about" title="ℹAbout" />
+          <LinkCard to="/about" title="About" />
           
         </div>
       </div>

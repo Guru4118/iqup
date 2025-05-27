@@ -8,7 +8,11 @@ import HomePage from './pages/HomePage';
 import UploadPage from './pages/UploadPage';
 import InterviewPage from './pages/InterviewPage';
 import EvaluationPage from './pages/EvaluationPage';
-
+import About from './pages/About';
+import Login from './components/Login';
+import Register from './components/Register';
+import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 function AppRouter() {
   useEffect(() => {
     AOS.init({
@@ -26,6 +30,11 @@ function AppRouter() {
         <Route path="/upload" element={<UploadPage />} />
         <Route path="/interview" element={<InterviewPage />} />
         <Route path="/evaluation" element={<EvaluationPage />} />
+        <Route path="/about" element={<About/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path='/register' element={<Register/>}></Route>
+        <Route path='/blogs' element={<Blog/>}></Route>
+        <Route path="/blogs/:id" element={<BlogDetail />} />
       </Routes>
     </Router>
   );

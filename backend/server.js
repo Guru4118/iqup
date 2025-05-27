@@ -40,6 +40,9 @@ app.use('/api/resume', resumeRoutes);
 app.use('/api/question', questionRoutes);
 app.use('/api/evaluate', evaluationRoutes);
 app.use("/api/auth", authRoutes);
+app.use('/api/blogs', require('./routes/blogRoutes'));
+
+
 // Start Server
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
