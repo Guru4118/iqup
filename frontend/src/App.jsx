@@ -13,6 +13,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
+import OnlineIDE from './pages/Practice';
 function AppRouter() {
   useEffect(() => {
     AOS.init({
@@ -35,6 +36,7 @@ function AppRouter() {
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/blogs' element={<Blog/>}></Route>
         <Route path="/blogs/:id" element={<BlogDetail />} />
+        <Route path ="/practice" element={<OnlineIDE/>}/>
       </Routes>
     </Router>
   );
