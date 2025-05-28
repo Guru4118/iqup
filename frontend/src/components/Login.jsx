@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from './Navbar';
 import QuickLinksPage from './QuickLinks';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://iqup.onrender.com/api/auth';
 
 export default function Login() {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
@@ -20,7 +20,8 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await axios.post(`${API_URL}/login`, loginData);
-      setMessage(res.data.message || 'Login successful! Token: ' + res.data.token);
+      setMessage(res.data.message || 'Login successful! ' );
+      Navigate("/")
     } catch (err) {
       setMessage(err.response?.data?.message || 'Login failed!');
     }

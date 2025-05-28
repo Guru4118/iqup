@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000/api' }); // adjust if needed
+const API = axios.create({ baseURL: 'https://iqup.onrender.com/api' }); // adjust if needed
 
 // Add auth token if required
 API.interceptors.request.use((req) => {

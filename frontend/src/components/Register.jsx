@@ -4,7 +4,7 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import QuickLinksPage from './QuickLinks';
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://iqup.onrender.com/api/auth";
 
 export default function Register() {
   const [registerData, setRegisterData] = useState({ name: '', email: '', password: '' });

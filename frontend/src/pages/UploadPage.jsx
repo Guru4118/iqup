@@ -14,7 +14,7 @@ export default function UploadPage() {
     formData.append('resume', resume);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/resume/upload', formData, {
+      const res = await axios.post('https://iqup.onrender.com/api/resume/upload', formData, {
         withCredentials: true,
       });
 

@@ -25,7 +25,7 @@ function InterviewPage() {
     if (!sessionId) return;
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/question/${sessionId}`, {
+      const res = await axios.get(`https://iqup.onrender.com/api/question/${sessionId}`, {
         withCredentials: true,
       });
       if (res.data.question) {
@@ -50,7 +50,7 @@ function InterviewPage() {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/question/${sessionId}`,
+        `https://iqup.onrender.com/api/question/${sessionId}`,
         { answer: text },
         { withCredentials: true }
       );
@@ -117,7 +117,7 @@ function InterviewPage() {
 
   const handleShowEvaluation = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/evaluate/${sessionId}`, {
+      const res = await axios.get(`https://iqup.onrender.com/api/evaluate/${sessionId}`, {
         withCredentials: true,
       });
       if (res.data.evaluation) {

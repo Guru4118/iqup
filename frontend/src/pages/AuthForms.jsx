@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://iqup.onrender.com/api/auth";
 
 export default function App() {
   const [registerData, setRegisterData] = useState({ name: '', email: '', password: '' });

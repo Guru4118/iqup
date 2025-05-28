@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000/api' });
+const API = axios.create({ baseURL: 'https://iqup.onrender.com/api' });
 
 // Interceptor already in blogApi.js—reuse it (token from localStorage)
 API.interceptors.request.use(req => {
