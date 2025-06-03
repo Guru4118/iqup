@@ -27,7 +27,7 @@ export default function QuickLinksPage() {
           
         </div>
       </div>
-      <p  className=" relative mb-6 flex flex-col items-center justify-center   text-center px-6">All Rights Reserved And Designed by Guruprasath</p>
+      <p  className=" relative mb-6 flex flex-col items-center justify-center   text-center px-6">All Rights Reserved And Designed by <a href="https://www.linkedin.com/in/guruprasath103/" target="new">Guruprasath</a></p>
     </div>
   );
 }
