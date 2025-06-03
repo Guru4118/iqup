@@ -21,8 +21,8 @@ export default function QuickLinksPage() {
 
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 w-full max-w-2xl">
           <LinkCard  to="/" title="Home" />
-          <LinkCard to="/upload" title="Roadmap" />
-          <LinkCard to="/interview" title="Blogs" />
+          <LinkCard to="/practice" title="Practice" />
+          <LinkCard to="/blogs" title="Blogs" />
           <LinkCard to="/about" title="About" />
           
         </div>
