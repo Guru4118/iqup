@@ -120,7 +120,7 @@ Scroll-reveal classes: `.reveal`, `.reveal-left`, `.reveal-right`, `.reveal-scal
 
 ## 🌐 Backend API
 
-All API calls point to `http://localhost:5000`. Routes used:
+All API calls use `VITE_API_BASE_URL` (see `src/api/config.js`). Default production: `https://iqup.onrender.com`. Routes used:
 
 | Method | Endpoint | Purpose |
 |---|---|---|

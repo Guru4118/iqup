@@ -7,6 +7,7 @@ import {
   Mic, MicOff, Video, VideoOff, SkipForward, Send,
   CheckCircle, AlertTriangle, Clock, BarChart2, MessageSquare,
 } from 'lucide-react';
+import { API_BASE_URL } from '../api/config';
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
 
@@ -31,7 +32,7 @@ export default function InterviewPage() {
     if (!sessionId) return;
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:5000/api/question/${sessionId}`, { withCredentials: true });
+      const res = await axios.get(`${API_BASE_URL}/api/question/${sessionId}`, { withCredentials: true });
       if (res.data.question) {
         setQuestion(res.data.question);
         setInterviewCompleted(res.data.question === 'Interview completed');
@@ -53,7 +54,7 @@ export default function InterviewPage() {
   const sendAnswer = async (text) => {
     if (!sessionId || !text.trim()) return;
     try {
-      await axios.post(`http://localhost:5000/api/question/${sessionId}`, { answer: text }, { withCredentials: true });
+      await axios.post(`${API_BASE_URL}/api/question/${sessionId}`, { answer: text }, { withCredentials: true });
       setQuestionNum(n => n + 1);
       fetchQuestion();
     } catch (err) {
@@ -96,7 +97,7 @@ export default function InterviewPage() {
     if (!sessionId) return;
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:5000/api/evaluate/${sessionId}`, { withCredentials: true });
+      const res = await axios.get(`${API_BASE_URL}/api/evaluate/${sessionId}`, { withCredentials: true });
       navigate('/evaluation', { state: { evaluation: res.data.evaluation } });
     } catch (err) {
       navigate('/evaluation', { state: { evaluation: 'Evaluation could not be loaded. Please try again.' } });

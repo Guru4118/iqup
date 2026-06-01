@@ -3,8 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './Navbar';
 import { Mail, Lock, User, ArrowRight, CheckCircle, Zap, Eye, EyeOff } from 'lucide-react';
+import { API_BASE_URL } from '../api/config';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = `${API_BASE_URL}/api/auth`;
 
 export default function Register() {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });

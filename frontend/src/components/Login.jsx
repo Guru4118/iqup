@@ -4,8 +4,9 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Mail, Lock, ArrowRight, CheckCircle, Zap, Eye, EyeOff } from 'lucide-react';
+import { API_BASE_URL } from '../api/config';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = `${API_BASE_URL}/api/auth`;
 
 const benefits = [
   'Resume-personalized interview questions',
