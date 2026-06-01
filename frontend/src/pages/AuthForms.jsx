@@ -6,8 +6,9 @@ import {
   Mail, Lock, User, ArrowRight, CheckCircle,
   Zap, Eye, EyeOff, Brain, Mic, BarChart2,
 } from 'lucide-react';
+import { API_BASE_URL } from '../api/config';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = `${API_BASE_URL}/api/auth`;
 
 const benefits = [
   { icon: <Brain size={16} />, label: 'Resume-personalized question sets' },

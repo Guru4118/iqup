@@ -4,6 +4,7 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Upload, FileText, CheckCircle, ArrowRight, Brain, Mic, BarChart2, X, Clock } from 'lucide-react';
+import { API_BASE_URL } from '../api/config';
 
 const steps = [
   { icon: <Brain size={16} />, label: 'AI analyzes your resume' },
@@ -43,7 +44,7 @@ export default function UploadPage() {
     const formData = new FormData();
     formData.append('resume', file);
     try {
-      const res = await axios.post('http://localhost:5000/api/resume/upload', formData, { withCredentials: true });
+      const res = await axios.post(`${API_BASE_URL}/api/resume/upload`, formData, { withCredentials: true });
       if (res.data.sessionId) {
         localStorage.setItem('sessionId', res.data.sessionId);
         navigate('/interview');

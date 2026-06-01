@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_BASE_URL } from './config';
 
-const API_URL = 'http://localhost:5000/api/blogs';
+const API_URL = `${API_BASE_URL}/api/blogs`;
 
 export const fetchBlogs = () => axios.get(API_URL);
 export const fetchBlogById = (id) => axios.get(`${API_URL}/${id}`);

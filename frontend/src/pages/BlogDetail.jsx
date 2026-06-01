@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { ArrowLeft, Clock, BookOpen, MessageSquare, ArrowUpRight, Share2 } from 'lucide-react';
 import { fetchBlogs } from '../api/blogApi';
+import { API_BASE_URL } from '../api/config';
 
 export default function BlogDetail() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ export default function BlogDetail() {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/blogs/${id}`);
+        const res = await axios.get(`${API_BASE_URL}/api/blogs/${id}`);
         setBlog(res.data);
         const all = await fetchBlogs();
         setRelated((all.data || []).filter(b => b._id !== id).slice(0, 3));
